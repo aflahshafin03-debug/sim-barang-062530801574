@@ -61,3 +61,5 @@ HTML, CSS, JavaScript, PHP, MySQL
 2. Letakkan folder di htdocs (XAMPP) atau www (Laragon)
 3. Jalankan Apache dan MySQL
 4. Buka http://localhost/sim-barang di browser
+
+<!-- Pertemuan 1 -->
