@@ -4,9 +4,11 @@ Sistem Informasi Manajemen Inventaris Barang Jurusan
 Praktikum Pemrograman Web, D3 Manajemen Informatika, Politeknik Negeri Sriwijaya
 
 ## Gambaran Proyek
+SIM-Barang adalah sistem pencatatan dan pengelolaan inventaris barang jurusan; sebutkan fungsinya (mencatat, mengelola, memantau aset).
 SIM-Barang adalah sistem pencatatan, pengelolaan, dan pemantauan sarana dan prasarana (aset/barang) laboratorium dan jurusan secara terintegrasi. Proyek dikembangkan bertahap dari Pertemuan 1 sampai 7: dari penyiapan lingkungan kerja, antarmuka HTML, CSS responsif, validasi JavaScript, sampai logika backend PHP dan basis data MySQL.
 
 ## HTTP Request dan Response
+request adalah permintaan dari browser ke server, response adalah jawaban server; sebutkan method GET dan POST, 
 HTTP (HyperText Transfer Protocol) adalah protokol komunikasi antara klien (browser) dan server web.
 
 *Request* adalah permintaan dari browser ke server. Isinya:
@@ -42,6 +44,7 @@ HTTP (HyperText Transfer Protocol) adalah protokol komunikasi antara klien (brow
 5. Browser menampilkan hasilnya
 
 ## Teknologi
+HTML, CSS, JavaScript, PHP, MySQL
 HTML, CSS, JavaScript, PHP, MySQL
 
 ## Roadmap Pertemuan
