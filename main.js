@@ -10,6 +10,7 @@ const inputKondisi = document.getElementById("kondisi");
 const inputCari = document.getElementById("cari");
 const tabelBody = document.querySelector("#data-barang tbody");
 const toast = document.getElementById("toast");
+const inputHarga = document.getElementById("harga");
 
 // ----- Fungsi bantu: tampilkan / hapus pesan error di bawah input -----
 function tampilkanError(input, pesan) {
@@ -64,7 +65,14 @@ form.addEventListener("submit", function (event) {
     } else {
         hapusError(inputJumlah);
     }
-
+    const harga = Number(inputHarga.value);
+    if (inputHarga.value === "" || isNaN(harga) || harga < 0) {
+        tampilkanError(inputHarga, "Harga harus berupa angka 0 atau lebih");
+        valid = false;
+    } else {
+        hapusError(inputHarga);
+    }
+    "<td>Rp " + harga.toLocaleString("id-ID") + "</td>"
     // Jika ada yang salah, berhenti di sini
     if (!valid) {
         return;
@@ -72,13 +80,14 @@ form.addEventListener("submit", function (event) {
 
     // Validasi lolos: tambahkan baris baru ke tabel (data hanya tampil sementara)
     const baris = document.createElement("tr");
-    const dataBaris = [
-        kode,
-        inputNama.value.trim(),
-        inputKategori.options[inputKategori.selectedIndex].text,
-        jumlah,
-        inputKondisi.options[inputKondisi.selectedIndex].text
-    ];
+   const dataBaris = [
+    kode,
+    inputNama.value.trim(),
+    inputKategori.options[inputKategori.selectedIndex].text,
+    jumlah,
+    inputKondisi.options[inputKondisi.selectedIndex].text,
+    "Rp " + harga.toLocaleString("id-ID")
+];
 
     dataBaris.forEach(function (isi) {
         const sel = document.createElement("td");
@@ -89,7 +98,7 @@ form.addEventListener("submit", function (event) {
     tabelBody.appendChild(baris);
 
     tampilkanToast("Barang " + kode + " berhasil divalidasi dan ditambahkan.");
-    form.reset();
+    form.submit();
 });
 
 // Hapus pesan error saat pengguna mulai mengetik ulang

@@ -27,6 +27,7 @@
                 <th>Kategori</th>
                 <th>Jumlah</th>
                 <th>Kondisi</th>
+                <th>Harga Satuan</th>
             </tr>
         </thead>
         <tbody>
@@ -36,6 +37,7 @@
                 <td>Elektronik</td>
                 <td>5</td>
                 <td>Baik</td>
+                <td>Rp 5.000.000</td>
             </tr>
             <!-- tambah 2-4 baris lagi -->
         </tbody>
@@ -43,7 +45,7 @@
 </section>
 <section id="tambah-barang">
             <h2>Tambah Barang</h2>
-            <form id="form-barang" action="#" method="post">
+            <form id="form-barang" action="simpan.php" method="POST">
                 <div>
                     <label for="kode">Kode Barang</label>
                     <input type="text" id="kode" name="kode" placeholder="Contoh: BRG-006" required>
@@ -79,10 +81,14 @@
                         <option value="rusak-berat">Rusak Berat</option>
                     </select>
                 </div>
+                 
+                <div>
+            <label for="harga">Harga Satuan</label>
+            <input type="number" id="harga" name="harga" min="0" placeholder="Contoh: 5000000" required>
+                </div>
 
                 <button type="submit">Simpan</button>
             </form>
-            <form id="form-barang" action="#" method="post"></form>
         </section>
 </main>
 <footer>
