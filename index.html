@@ -18,6 +18,7 @@
 <main>
   <section id="data-barang">
     <h2>Daftar Inventaris Barang</h2>
+    <input type="text" id="cari" placeholder="Cari barang...">
     <table>
         <thead>
             <tr>
@@ -42,7 +43,7 @@
 </section>
 <section id="tambah-barang">
             <h2>Tambah Barang</h2>
-            <form action="#" method="post">
+            <form id="form-barang" action="#" method="post">
                 <div>
                     <label for="kode">Kode Barang</label>
                     <input type="text" id="kode" name="kode" placeholder="Contoh: BRG-006" required>
@@ -81,10 +82,13 @@
 
                 <button type="submit">Simpan</button>
             </form>
+            <form id="form-barang" action="#" method="post"></form>
         </section>
 </main>
 <footer>
     <p>&copy; 2026 Aflah Muhammad shafin - NIM 062530801574</p>
 </footer>
+<div id="toast" class="toast"></div>
+<script src="main.js"></script>
 </body>
 </html>
