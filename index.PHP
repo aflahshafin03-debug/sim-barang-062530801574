@@ -1,3 +1,11 @@
+<?php
+session_start();
+if (!isset($_SESSION["login"])) {
+    header("Location: login.php");
+    exit;
+}
+?>
+
 <!DOCTYPE html>
 <html lang="id">
 <head>
@@ -13,6 +21,7 @@
         <li><a href="#">Beranda</a></li>
         <li><a href="#data-barang">Data Barang</a></li>
         <li><a href="#tambah-barang">Tambah Barang</a></li>
+        <li><a href="logout.php">Logout</a></li>
     </ul>
 </nav>
 <main>

@@ -1,4 +1,10 @@
 <?php
+session_start();
+if (!isset($_SESSION["login"])) {
+    header("Location: login.php");
+    exit;
+}
+require "Barang.php";
 function hitungTotal($jumlah, $harga) {
     return $jumlah * $harga;
 }
@@ -15,6 +21,7 @@ $kondisi  = htmlspecialchars($_POST["kondisi"]);
 $jumlah   = (int) $_POST["jumlah"];
 $harga    = (float) $_POST["harga"];
 $total    = hitungTotal($jumlah, $harga);
+$barang = new Barang($kode, $nama, $jumlah);
 ?>
 <!DOCTYPE html>
 <html lang="id">
@@ -35,6 +42,7 @@ $total    = hitungTotal($jumlah, $harga);
     <tr><th>Harga Satuan</th><td>Rp <?= number_format($harga, 0, ",", ".") ?></td></tr>
     <tr><th>Total Nilai Aset</th><td>Rp <?= number_format($total, 0, ",", ".") ?></td></tr>
   </table>
+  <p><?= $barang->tampilkanInfo() ?></p>
   <p><a href="index.html">Kembali</a></p>
 </body>
 </html>
