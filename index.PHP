@@ -4,6 +4,13 @@ if (!isset($_SESSION["login"])) {
     header("Location: login.php");
     exit;
 }
+require "koneksi.php";
+$daftar = $pdo->query(
+    "SELECT b.kode, b.nama, k.nama_kategori, b.jumlah, b.kondisi, b.harga
+     FROM barang b JOIN kategori k ON b.id_kategori = k.id_kategori
+     ORDER BY b.id_barang"
+)->fetchAll();
+$kategoriList = $pdo->query("SELECT * FROM kategori ORDER BY nama_kategori")->fetchAll();
 ?>
 
 <!DOCTYPE html>
@@ -40,14 +47,16 @@ if (!isset($_SESSION["login"])) {
             </tr>
         </thead>
         <tbody>
-            <tr>
-                <td>BRG-001</td>
-                <td>Proyektor</td>
-                <td>Elektronik</td>
-                <td>5</td>
-                <td>Baik</td>
-                <td>Rp 5.000.000</td>
-            </tr>
+           <?php foreach ($daftar as $b): ?>
+<tr>
+    <td><?= htmlspecialchars($b["kode"]) ?></td>
+    <td><?= htmlspecialchars($b["nama"]) ?></td>
+    <td><?= htmlspecialchars($b["nama_kategori"]) ?></td>
+    <td><?= $b["jumlah"] ?></td>
+    <td><?= htmlspecialchars($b["kondisi"]) ?></td>
+    <td>Rp <?= number_format($b["harga"], 0, ",", ".") ?></td>
+</tr>
+<?php endforeach; ?>
             <!-- tambah 2-4 baris lagi -->
         </tbody>
     </table>
@@ -66,14 +75,12 @@ if (!isset($_SESSION["login"])) {
                 </div>
 
                 <div>
-                    <label for="kategori">Kategori</label>
-                    <select id="kategori" name="kategori" required>
-                        <option value="">-- Pilih Kategori --</option>
-                        <option value="elektronik">Elektronik</option>
-                        <option value="furnitur">Furnitur</option>
-                        <option value="jaringan">Peralatan Jaringan</option>
-                        <option value="alat-tulis">Alat Tulis</option>
-                    </select>
+                   <select id="kategori" name="kategori" required>
+    <option value="">-- Pilih Kategori --</option>
+    <?php foreach ($kategoriList as $k): ?>
+    <option value="<?= $k["id_kategori"] ?>"><?= htmlspecialchars($k["nama_kategori"]) ?></option>
+    <?php endforeach; ?>
+</select>
                 </div>
 
                 <div>

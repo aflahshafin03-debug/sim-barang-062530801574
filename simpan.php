@@ -16,11 +16,22 @@ if ($_SERVER["REQUEST_METHOD"] !== "POST") {
 
 $kode     = htmlspecialchars($_POST["kode"]);
 $nama     = htmlspecialchars($_POST["nama"]);
-$kategori = htmlspecialchars($_POST["kategori"]);
+$idKategori = (int) $_POST["kategori"];
 $kondisi  = htmlspecialchars($_POST["kondisi"]);
 $jumlah   = (int) $_POST["jumlah"];
 $harga    = (float) $_POST["harga"];
 $total    = hitungTotal($jumlah, $harga);
+require "koneksi.php";
+
+$stmt = $pdo->prepare(
+    "INSERT INTO barang (kode, nama, id_kategori, jumlah, kondisi, harga)
+     VALUES (?, ?, ?, ?, ?, ?)"
+);
+$stmt->execute([$kode, $nama, $idKategori, $jumlah, $kondisi, $harga]);
+
+$q = $pdo->prepare("SELECT nama_kategori FROM kategori WHERE id_kategori = ?");
+$q->execute([$idKategori]);
+$kategori = $q->fetchColumn();
 $barang = new Barang($kode, $nama, $jumlah);
 ?>
 <!DOCTYPE html>
