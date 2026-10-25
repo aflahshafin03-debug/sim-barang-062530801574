@@ -49,12 +49,12 @@ HTML, CSS, JavaScript, PHP, MySQL
 
 ## Roadmap Pertemuan
 - [x] Pertemuan 1: Setup lingkungan kerja, Git, dan README
-- [ ] Pertemuan 2: Struktur HTML5 semantik, tabel, dan form
-- [ ] Pertemuan 3: CSS3 responsif (Flexbox, Grid, Media Query)
-- [ ] Pertemuan 4: Validasi form dan interaksi DOM (JavaScript)
-- [ ] Pertemuan 5: Pengolahan form dengan PHP native (POST)
-- [ ] Pertemuan 6: Login, session, dan OOP dasar
-- [ ] Pertemuan 7: Desain ERD dan integrasi PHP-MySQL
+- [X] Pertemuan 2: Struktur HTML5 semantik, tabel, dan form
+- [X] Pertemuan 3: CSS3 responsif (Flexbox, Grid, Media Query)
+- [X] Pertemuan 4: Validasi form dan interaksi DOM (JavaScript)
+- [X] Pertemuan 5: Pengolahan form dengan PHP native (POST)
+- [X] Pertemuan 6: Login, session, dan OOP dasar
+- [X] Pertemuan 7: Desain ERD dan integrasi PHP-MySQL
 
 ## Cara Menjalankan
 1. Clone repositori ini
