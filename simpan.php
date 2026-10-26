@@ -4,7 +4,7 @@ if (!isset($_SESSION["login"])) {
     header("Location: login.php");
     exit;
 }
-require "Barang.php";
+require "barang.php";
 function hitungTotal($jumlah, $harga) {
     return $jumlah * $harga;
 }
