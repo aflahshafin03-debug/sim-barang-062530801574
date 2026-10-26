@@ -203,3 +203,13 @@ footer { text-align: center; color: var(--muted); font-size: 0.9rem; padding: 18
     main { grid-template-columns: 2fr 1fr; align-items: start; }
     section { padding: 24px; }
 }
+.aksi { white-space: nowrap; }
+.btn-edit, .btn-hapus {
+    display: inline-block; padding: 6px 12px; border: none; border-radius: 8px;
+    font-size: 0.85rem; font-weight: 600; cursor: pointer; text-decoration: none;
+}
+.btn-edit { background: #dbeafe; color: #1d4ed8; }
+.btn-hapus { background: #ffe4e6; color: #be123c; width: auto; }
+.btn-edit:hover { background: #bfdbfe; }
+.btn-hapus:hover { background: #fecdd3; }
+.notif { background: #dcfce7; color: #166534; padding: 10px 14px; border-radius: 10px; margin-bottom: 12px; }

@@ -1,3 +1,6 @@
+<?php if (isset($_GET["pesan"])): ?>
+    <p class="notif">Data berhasil <?= htmlspecialchars($_GET["pesan"]) ?>.</p>
+<?php endif; ?>
 <?php
 session_start();
 if (!isset($_SESSION["login"])) {
@@ -6,7 +9,7 @@ if (!isset($_SESSION["login"])) {
 }
 require "koneksi.php";
 $daftar = $pdo->query(
-    "SELECT b.kode, b.nama, k.nama_kategori, b.jumlah, b.kondisi, b.harga
+    "SELECT b.id_barang, b.kode, b.nama, k.nama_kategori, b.jumlah, b.kondisi, b.harga
      FROM barang b JOIN kategori k ON b.id_kategori = k.id_kategori
      ORDER BY b.id_barang"
 )->fetchAll();
@@ -44,6 +47,7 @@ $kategoriList = $pdo->query("SELECT * FROM kategori ORDER BY nama_kategori")->fe
                 <th>Jumlah</th>
                 <th>Kondisi</th>
                 <th>Harga Satuan</th>
+                <th>Aksi</th>
             </tr>
         </thead>
         <tbody>
@@ -55,6 +59,14 @@ $kategoriList = $pdo->query("SELECT * FROM kategori ORDER BY nama_kategori")->fe
     <td><?= $b["jumlah"] ?></td>
     <td><?= htmlspecialchars($b["kondisi"]) ?></td>
     <td>Rp <?= number_format($b["harga"], 0, ",", ".") ?></td>
+    <td class="aksi">
+    <a class="btn-edit" href="edit.php?id=<?= $b["id_barang"] ?>">Edit</a>
+    <form method="POST" action="hapus.php" style="display:inline"
+          onsubmit="return confirm('Hapus barang ini?');">
+        <input type="hidden" name="id_barang" value="<?= $b["id_barang"] ?>">
+        <button type="submit" class="btn-hapus">Hapus</button>
+    </form>
+</td>
 </tr>
 <?php endforeach; ?>
             <!-- tambah 2-4 baris lagi -->
